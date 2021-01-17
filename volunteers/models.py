@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.deconstruct import deconstructible
+
 from userena.models import UserenaLanguageBaseProfile
 
 import datetime
@@ -47,6 +49,7 @@ def parse_hour_duration(start_str, duration_str, format='%H:%M'):
 
 # Create your models here.
 
+@deconstructible
 class Edition(models.Model):
     class Meta:
         verbose_name = _('Edition')
